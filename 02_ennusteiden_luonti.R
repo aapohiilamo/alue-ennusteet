@@ -63,12 +63,11 @@ mc<- run.mig.mcmc(nr.chains = 3, iter = 5000,
                   replace.output = TRUE, verbose.iter = 1000)
 
 mig.subnat <- mig.predict(sim.dir = subnat.mig.dir, nr.traj = 10000,
-                          burnin = 1000, end.year = 2050, save.as.ascii = 100)
+                          burnin = 1000, end.year = 2050, save.as.ascii = 1000)
 
 mig.subnat <- get.mig.prediction(sim.dir = subnat.mig.dir)
 mig.trajectories.plot(mig.subnat, "Uusimaa", nr.traj = 30)
 mig.trajectories.plot(mig.subnat, "Koko maa", nr.traj = 30)
-
 
 #############################
 # Population projections
@@ -278,4 +277,5 @@ older_share<- ggplot(data_older_share, aes(as.numeric(year), median, color=ennus
   theme(legend.position="bottom") 
 
 ggsave("older_share.svg",older_share, width=8, height=10)
+
 
